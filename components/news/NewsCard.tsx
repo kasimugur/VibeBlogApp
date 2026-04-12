@@ -1,14 +1,18 @@
-// components/news/NewsCard.tsx
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { NewsArticle } from "@/types/news";
+import { Dispatch, SetStateAction, useState } from "react";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface NewsCardProps {
   article: NewsArticle;
 }
 
 export default function NewsCard({ article }: NewsCardProps) {
-  // Tarihi Türkçe formatta göstermek için
+const [imgSrc, setImgSrc] = useState(article.urlToImage || "public/placeholder-news.png" );
+
+const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800";
   const formattedDate = new Intl.DateTimeFormat("tr-TR", {
     day: "numeric",
     month: "long",
@@ -22,13 +26,14 @@ export default function NewsCard({ article }: NewsCardProps) {
     <div className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-all duration-300">
       {/* Görsel Alanı */}
       <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-        <Image
-          src={imageUrl}
-          alt={article.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+      <Image
+        src={imgSrc}
+        alt={article.title}
+        fill
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={() => setImgSrc(fallbackImage)} // Hata aldığında yedek görsele geç
+        unoptimized // NewsAPI gibi çok farklı kaynaklardan gelen resimlerde 403'ü azaltabilir
+      />
       </div>
 
       {/* İçerik Alanı */}
