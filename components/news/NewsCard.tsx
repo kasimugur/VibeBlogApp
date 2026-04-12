@@ -32,7 +32,7 @@ export default function NewsCard({ article }: NewsCardProps) {
       </div>
 
       {/* İçerik Alanı */}
-      <div className="flex flex-col flex-grow p-5">
+      <div className="flex flex-col grow p-5">
         <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
           <span className="font-medium text-blue-600 dark:text-blue-400">
             {article.source.name}
