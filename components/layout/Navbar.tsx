@@ -1,5 +1,6 @@
 // components/layout/Navbar.tsx
 import Link from "next/link";
+import { ModeToggle } from "../mode-toggle";
 
 export default function Navbar() {
   return (
@@ -24,6 +25,7 @@ export default function Navbar() {
 
         {/* Sağ Taraf - Arama vs. */}
         <div className="flex items-center gap-4">
+          <ModeToggle />
           <button className="text-sm font-medium border px-4 py-2 rounded-full hover:bg-slate-100 transition-colors">
             Abone Ol
           </button>
