@@ -1,101 +1,99 @@
-Harika bir şablon\! CineSearch projesinde kullandığın bu profesyonel yapıyı, az önce adım adım inşa ettiğimiz **VibeBlog** projesinin özelliklerine ve mimarisine tam olarak uyarladım.
+# ⚡ VibeBlog - Next Generation News Platform
+![VibeBlog Banner](./public/banner.png)
 
-Görsel yollarını (`./public/...`) ve canlı yayın linkini kendi projenin yapısına göre güncelleyebilirsin.
-
-İşte projenin ana dizinindeki `README.md` dosyasına yapıştırabileceğin VibeBlog şablonu:
-
------
-
-# ⚡ VibeBlog - Yeni Nesil Haber Platformu
-
-VibeBlog, güncel dünyayı takip etmek için tasarlanmış modern bir **Next.js** uygulamasıdır. NewsAPI gücüyle çalışan platform, anlık veri akışı, kusursuz bir kullanıcı deneyimi (UX) ve tamamen duyarlı (responsive) bir arayüz sunar. Sadece bir haber okuma aracı değil, aynı zamanda modern web mühendisliği pratiklerinin (SSR, URL-based state yönetimi, Error Boundaries) sergilendiği bir vitrindir.
+VibeBlog is a modern **Next.js** application designed to keep up with the current world. Powered by NewsAPI, the platform provides real-time data flow, a seamless user experience (UX), and a fully responsive interface. It is not just a news reading tool, but also a showcase of modern web engineering practices (SSR, URL-based state management, Error Boundaries).
 
 -----
 
-## 📍 İçindekiler
+## 📍 Table of Contents
 
-  * [🚀 Öne Çıkan Özellikler](https://www.google.com/search?q=%23-%C3%B6ne-%C3%A7%C4%B1kan-%C3%B6zellikler)
-  * [🛠️ Teknoloji Yığını](https://www.google.com/search?q=%23%EF%B8%8F-teknoloji-y%C4%B1%C4%9F%C4%B1n%C4%B1)
-  * [🎥 Demo ve Görseller](https://www.google.com/search?q=%23-demo-ve-g%C3%B6rseller)
-  * [🏗️ Mimari ve Performans](https://www.google.com/search?q=%23%EF%B8%8F-mimari-ve-performans)
-  * [📦 Kurulum ve Çalıştırma](https://www.google.com/search?q=%23-kurulum-ve-%C3%A7al%C4%B1%C5%9Ft%C4%B1rma)
-  * [🔗 İletişim](https://www.google.com/search?q=%23-ileti%C5%9Fim)
+- [🚀 Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🎥 Demo & Screenshots](#-demo--screenshots)
+- [🏗️ Architecture & Performance](#️-architecture--performance)
+- [📦 Installation & Setup](#-installation--setup)
+- [🔗 Contact](#-contact)
 
 -----
 
-## 🚀 Öne Çıkan Özellikler
+## 🚀 Features
 
-  - **Dinamik Arama ve Filtreleme:** Saniyeler içinde haberlerde arama yapın ve URL tabanlı state yönetimi ile sonuçları kolayca paylaşın.
-  - **Manşet (Hero) Carousel:** Ana sayfada dikkat çekici, otomatik kayan "Son Dakika" haberleri köşesi.
-  - **Hibrit Yükleme (Load More):** Kullanıcı deneyimini kesintiye uğratmadan, sunucu ve istemci taraflı veri çekme stratejisi ile kesintisiz haber akışı.
-  - **Modern UI/UX & Tema:** Shadcn/UI ve Tailwind CSS ile inşa edilmiş, pürüzsüz çalışan Gece/Gündüz (Dark/Light) modu.
-  - **Dinamik Yönlendirme:** Her habere özel, içerik detaylarını barındıran şık ve SEO dostu sayfalar (`/news/[title]`).
+- **Dynamic Search & Filtering:** Search news within seconds and easily share results with URL-based state management.
+- **Hero Carousel:** A visually engaging, auto-sliding "Breaking News" section on the homepage.
+- **Hybrid Loading (Load More):** Continuous news flow using both server-side and client-side fetching strategies without interrupting user experience.
+- **Modern UI/UX & Theme:** Built with Shadcn/UI and Tailwind CSS, featuring smooth Dark/Light mode support.
+- **Dynamic Routing:** Clean and SEO-friendly pages for each news article (`/news/[title]`).
 
-## 🛠️ Teknoloji Yığını
+## 🛠️ Tech Stack
 
-  - **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
-  - **Dil:** [TypeScript](https://www.typescriptlang.org/)
-  - **Stil:** [Tailwind CSS](https://tailwindcss.com/)
-  - **UI Bileşenleri:** [Shadcn/UI](https://www.google.com/search?q=https://ui.shadcn.com/) & Radix UI
-  - **Tema Yönetimi:** [Next-Themes](https://www.google.com/search?q=https://github.com/pacocoursey/next-themes)
-  - **API:** [NewsAPI](https://www.google.com/search?q=https://newsapi.org/)
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** Shadcn/UI & Radix UI
+- **Theme Management:** Next-Themes
+- **API:** NewsAPI
 
-## 🎥 Demo ve Görseller
+## 🎥 Demo & Screenshots
+### Live Preview
+![Demo GIF](./public/vibeblogapp.mp4)
 
-### Canlı Önizleme
+---
+[Live Link](https://vibeblog-app-link.vercel.app/) 
 
-|---
-[Canlı Link](https://www.google.com/search?q=https://vibeblog-app-link.vercel.app/) *(Projenizi yayına aldığınızda linki buraya ekleyin)*
+### Application Screenshots
 
-### Uygulama Ekran Görüntüleri
-
-| Gece Modu (Dark Mode) | Yüklenme (Skeleton) & Hata | Kategori & Arama Deneyimi |
+| Light mode | Loading (Skeleton) & Error | Category & Search Experience |
 |---|---|---|
-|  |  |  |
+|![Light mode](./public/lightmode.png)  |![Loading](./public/loading.png) ![Skeleton](./public/skeleton.png) | ![Light mode](./public/search.png) |
 
-## 🏗️ Mimari ve Performans
+## 🏗️ Architecture & Performance
 
-Uygulama, hatalara karşı dayanıklı ve yüksek performanslı olacak şekilde tasarlanmıştır:
+The application is designed to be resilient and high-performance:
 
-  - **Görsel Fallback Stratejisi:** Kırık veya eksik API görsellerine karşı UI bütünlüğünü koruyan `onError` resim yönetimi.
-  - **Loading ve Error States:** Kullanıcıyı boş ekranda bekletmemek adına, sayfa ve bileşen bazlı özel `Skeleton` iskeletleri ve `error.tsx` hata sınırları (Error Boundaries).
-  - **URL-Based State:** Arama ve filtreleme işlemleri için istemci belleği yerine URL parametrelerinin kullanılması, bu sayede tam SEO uyumluluğu ve gelişmiş tarayıcı navigasyonu (Geri/İleri tuşları).
-  - **Önbellekleme:** Dış API limitlerini korumak için Next.js `revalidate` mimarisi ile veri optimizasyonu.
+- **Image Fallback Strategy:** Maintains UI consistency against broken or missing API images using `onError` handling.
+- **Loading and Error States:** Prevents blank screens with page-level and component-level `Skeleton` loaders and `error.tsx` error boundaries.
+- **URL-Based State:** Uses URL parameters instead of client memory for search and filtering, ensuring full SEO compatibility and improved browser navigation (back/forward support).
+- **Caching:** Optimized data fetching using Next.js `revalidate` strategy to protect external API limits.
 
-## 📦 Kurulum ve Çalıştırma
+## 📦 Installation & Setup
 
-Projeyi yerel ortamınızda çalıştırmak için şu adımları izleyin:
+Follow these steps to run the project locally:
 
-1.  **Projeyi klonlayın:**
+1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/kasimugur/vibeblog.git
-    cd vibeblog
-    ```
+```bash
+git clone https://github.com/kasimugur/vibeblog.git
+cd vibeblog
+````
 
-2.  **Bağımlılıkları yükleyin:**
+2. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
-3.  **Çevre değişkenlerini ayarlayın:**
-    Ana dizinde bir `.env.local` dosyası oluşturun ve NewsAPI hesabınızdan aldığınız anahtarı ekleyin:
+3. **Set environment variables:**
 
-    ```env
-    NEWS_API_KEY=sizin_api_anahtariniz_buraya
-    ```
+Create a `.env.local` file in the root directory and add your NewsAPI key:
 
-4.  **Geliştirme sunucusunu başlatın:**
+```env
+NEWS_API_KEY=your_api_key_here
+```
 
-    ```bash
-    npm run dev
-    ```
+4. **Run the development server:**
 
-    Uygulamayı deneyimlemek için tarayıcınızda `http://localhost:3000` adresine gidin.
+```bash
+npm run dev
+```
 
------
+Open `http://localhost:3000` in your browser to view the app.
 
-# 🔗 İletişim
+---
 
-**Geliştirici: Kasım Uğur** | [GitHub](https://github.com/kasimugur/) | [LinkedIn](https://www.linkedin.com/in/kasimugur/)
+# 🔗 Contact
+
+**Developer:** Kasım Uğur
+GitHub: [https://github.com/kasimugur/](https://github.com/kasimugur/)
+LinkedIn: [https://www.linkedin.com/in/kasimugur/](https://www.linkedin.com/in/kasimugur/)
+
+

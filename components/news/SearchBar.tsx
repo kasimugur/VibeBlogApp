@@ -32,7 +32,7 @@ export default function SearchBar() {
         name="search"
         type="search"
         placeholder="Haber ara..."
-        className="pl-9 rounded-full bg-slate-100 dark:bg-slate-800 border-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="pl-9 rounded-full bg-slate-100 dark:bg-slate-800 border-none focus-visible:ring-2 focus-visible:ring-purple-600"
         defaultValue={searchParams.get("q") ?? ""}
       />
     </form>

@@ -43,7 +43,7 @@ export default function NewsCard({ article }: NewsCardProps) {
         </div>
 
         <Link href={`/news/${encodeURIComponent(article.title)}`}  className="block mt-1">
-          <h3 className="text-xl font-bold leading-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
+          <h3 className="text-xl font-bold leading-tight text-slate-900 dark:text-white hover:text-purple-500 dark:hover:text-purple-400 transition-colors line-clamp-2">
             {article.title}
           </h3>
         </Link>
@@ -55,7 +55,7 @@ export default function NewsCard({ article }: NewsCardProps) {
         <div className="mt-auto pt-5">
           <Link
             href={`/news/${encodeURIComponent(article.title)}`}
-            className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400"
+            className="inline-flex items-center text-sm font-semibold text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-500"
           >
             Haberi İncele <span className="ml-1">→</span>
           </Link>

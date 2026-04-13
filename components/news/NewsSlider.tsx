@@ -26,7 +26,7 @@ export function NewsSlider({ articles }: { articles: NewsArticle[] }) {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6 md:p-12 w-full md:w-3/4 text-white">
-                  <span className="bg-blue-600 px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">SON DAKİKA</span>
+                  <span className="bg-purple-600 px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">SON DAKİKA</span>
                   <h2 className="text-2xl md:text-4xl font-bold mb-4 line-clamp-2">{article.title}</h2>
                   <p className="text-slate-200 line-clamp-2 hidden md:block">{article.description}</p>
                 </div>
