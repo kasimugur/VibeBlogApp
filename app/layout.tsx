@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/layout/Footer";
 
 const raleway = Raleway({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -41,9 +42,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html >

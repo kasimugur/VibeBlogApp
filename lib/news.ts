@@ -11,7 +11,7 @@ export async function getTopHeadlines(category: string = "general") {
   // Bu sayede hem API limitini koruyoruz .
   const res = await fetch(
     `${BASE_URL}/top-headlines?category=${category}&apiKey=${API_KEY}`,
-    { next: { revalidate: 3600 } } 
+    { next: { revalidate: 3600 } }
   );
 
   if (!res.ok) {
@@ -27,21 +27,29 @@ export async function getTopHeadlines(category: string = "general") {
 export async function getNews({
   category,
   query,
+  page = 1,
 }: {
   category?: string;
   query?: string;
+  page?: number;
 }) {
-  let url = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
+  const pageSize = 8;
+  let url = `${BASE_URL}/top-headlines?country=us&category=${category || "general"}&pageSize=${pageSize}&page=${page}&apiKey=${API_KEY}`;
 
-  // Eğer kategori seçildiyse ekle
-  if (category && category !== "general") {
-    url += `&category=${category}`;
-  }
-
-  // Eğer arama yapıldıysa 'everything' ucuna gitmek daha mantıklıdır
   if (query) {
-    url = `${BASE_URL}/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
+    url = `${BASE_URL}/everything?q=${encodeURIComponent(query)}&pageSize=${pageSize}&page=${page}&apiKey=${API_KEY}`;
   }
+  
+  // // let url = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
+  // // Eğer kategori seçildiyse ekle
+  // if (category && category !== "general") {
+  //   url += `&category=${category}`;
+  // }
+
+  // // Eğer arama yapıldıysa 'everything' ucuna gitmek daha mantıklıdır
+  // if (query) {
+  //   url = `${BASE_URL}/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
+  // }
 
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });
