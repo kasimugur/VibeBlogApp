@@ -1,6 +1,5 @@
 // app/page.tsx
 import { getNews } from "@/lib/news";
-import NewsCard from "@/components/news/NewsCard";
 import LoadMore from "@/components/news/LoadMore";
 import { NewsSlider } from "@/components/news/NewsSlider";
 interface PageProps {
@@ -18,10 +17,10 @@ export default async function HomePage({ searchParams }: PageProps) {
       <NewsSlider articles={initialArticles} />
       <div className="flex flex-col mb-8">
         <h1 className="text-3xl font-bold tracking-tight">
-          {q ? `"${q}" için sonuçlar` : category ? `${category.toUpperCase()} Haberleri` : "En Son Gelişmeler"}
+          {q ? `"${q}" results for` : category ? `${category.toUpperCase()} news` : "Latest Developments"}
         </h1>
         <p className="text-slate-500 dark:text-slate-400 mt-2">
-          Dünyadan güncel haberler ve analizler.
+        Current news and analysis from around the world.
         </p>
       </div>
 
@@ -33,8 +32,8 @@ export default async function HomePage({ searchParams }: PageProps) {
         />
       ) : (
         <div className="text-center py-20">
-          <h2 className="text-xl font-semibold">Haber bulunamadı.</h2>
-          <p className="text-slate-500">Farklı bir arama yapmayı veya kategori değiştirmeyi deneyin.</p>
+          <h2 className="text-xl font-semibold">No news found.</h2>
+          <p className="text-slate-500">Try a different search or change categories.</p>
         </div>
       )}
     </main>

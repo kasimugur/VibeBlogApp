@@ -10,22 +10,19 @@ interface PageProps {
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {
-  // 1. URL'den gelen şifrelenmiş başlığı çözüyoruz
   const { title } = await params;
   const decodedTitle = decodeURIComponent(title);
 
-  // 2. Başlığa göre haberi API'den buluyoruz
   const articles = await getNews({ query: decodedTitle });
   const article = articles.length > 0 ? articles[0] : null;
 
-  // 3. Haber bulunamazsa (veya API limitine takılırsa) Fallback ekranı
   if (!article) {
     return (
       <div className="container mx-auto px-4 py-32 text-center max-w-2xl">
-        <h1 className="text-3xl font-bold mb-4">Haber Bulunamadı</h1>
-        <p className="text-slate-500 mb-8">Aradığınız haber yayından kaldırılmış veya bir API hatası oluşmuş olabilir.</p>
+        <h1 className="text-3xl font-bold mb-4">No News Found</h1>
+        <p className="text-slate-500 mb-8">The news article you're looking for may have been removed or there may have been an API error.</p>
         <Link href="/">
-          <Button><ArrowLeft className="mr-2 h-4 w-4" /> Ana Sayfaya Dön</Button>
+          <Button><ArrowLeft className="mr-2 h-4 w-4" />Return to Home Page </Button>
         </Link>
       </div>
     );
@@ -41,7 +38,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
     <main className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Geri Dönüş Butonu */}
       <Link href="/" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white mb-8 transition-colors">
-        <ArrowLeft className="mr-2 h-4 w-4" /> Haberlere Dön
+        <ArrowLeft className="mr-2 h-4 w-4" /> Back to News
       </Link>
 
       <article className="space-y-8">
@@ -51,7 +48,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
             <Globe className="h-4 w-4" />
             <span>{article.source.name}</span>
           </div>
-          
+
           <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-900 dark:text-white">
             {article.title}
           </h1>
@@ -94,12 +91,12 @@ export default async function ArticleDetailPage({ params }: PageProps) {
         {/* Call to Action (Kaynağa Git) */}
         <div className="bg-slate-50 dark:bg-slate-900 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-lg font-bold mb-1">Haberin tamamını okumak ister misiniz?</h3>
-            <p className="text-sm text-slate-500">Bu içerik {article.source.name} tarafından sağlanmıştır. Tüm detaylar için kaynağa gidebilirsiniz.</p>
+            <h3 className="text-lg font-bold mb-1">Would you like to read the full story?</h3>
+            <p className="text-sm text-slate-500">This content was provided by {article.source.name}. You can visit the source for all the details.</p>
           </div>
           <a href={article.url} target="_blank" rel="noopener noreferrer" className="shrink-0">
             <Button size="lg" className="w-full sm:w-auto">
-              Kaynağa Git <ExternalLink className="ml-2 h-4 w-4" />
+              Go to Source <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </a>
         </div>

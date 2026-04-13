@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NewsArticle } from "@/types/news";
-import { Dispatch, SetStateAction, useState } from "react";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useState } from "react";
 
 interface NewsCardProps {
   article: NewsArticle;
@@ -19,8 +18,6 @@ export default function NewsCard({ article }: NewsCardProps) {
     year: "numeric",
   }).format(new Date(article.publishedAt));
 
-  // Kırık veya boş resimler için yedek görsel stratejisi
-  const imageUrl = article.urlToImage || "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800&auto=format&fit=crop";
 
   return (
     <div className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-all duration-300">
@@ -31,7 +28,7 @@ export default function NewsCard({ article }: NewsCardProps) {
           alt={article.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={() => setImgSrc(fallbackImage)} // Hata aldığında yedek görsele geç
+          onError={() => setImgSrc(fallbackImage)} 
           unoptimized // NewsAPI gibi çok farklı kaynaklardan gelen resimlerde 403'ü azaltabilir
         />
       </div>
@@ -55,7 +52,6 @@ export default function NewsCard({ article }: NewsCardProps) {
           {article.description || "Bu haberin detayı bulunmamaktadır..."}
         </p>
 
-        {/* Buton - Flex-grow ile hep en altta kalmasını sağlıyoruz */}
         <div className="mt-auto pt-5">
           <Link
             href={`/news/${encodeURIComponent(article.title)}`}

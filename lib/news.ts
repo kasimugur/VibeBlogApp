@@ -1,4 +1,3 @@
-// lib/news.ts
 
 import { NewsResponse } from "@/types/news";
 
@@ -15,7 +14,7 @@ export async function getTopHeadlines(category: string = "general") {
   );
 
   if (!res.ok) {
-    // API hata verirse boş dizi dönmek yerine lokaldeki mockData'yı döndürebilirsin.
+    
     throw new Error("Haberler yüklenirken bir hata oluştu.");
   }
 
@@ -39,17 +38,7 @@ export async function getNews({
   if (query) {
     url = `${BASE_URL}/everything?q=${encodeURIComponent(query)}&pageSize=${pageSize}&page=${page}&apiKey=${API_KEY}`;
   }
-  
-  // // let url = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
-  // // Eğer kategori seçildiyse ekle
-  // if (category && category !== "general") {
-  //   url += `&category=${category}`;
-  // }
 
-  // // Eğer arama yapıldıysa 'everything' ucuna gitmek daha mantıklıdır
-  // if (query) {
-  //   url = `${BASE_URL}/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
-  // }
 
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });

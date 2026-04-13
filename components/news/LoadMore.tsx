@@ -5,7 +5,6 @@ import { NewsArticle } from "@/types/news";
 import NewsCard from "./NewsCard";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { getNews } from "@/lib/news"; // Not: Bu fonksiyonu client-side'da kullanmak için ufak bir ayar gerekecek
 
 export default function LoadMore({ 
   initialArticles, 
@@ -63,10 +62,10 @@ export default function LoadMore({
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Yükleniyor...
+                loading...
               </>
             ) : (
-              "Daha Fazla Haber"
+              "More News"
             )}
           </Button>
         </div>
