@@ -10,9 +10,9 @@ interface NewsCardProps {
 }
 
 export default function NewsCard({ article }: NewsCardProps) {
-const [imgSrc, setImgSrc] = useState(article.urlToImage || "public/placeholder-news.png" );
+  const [imgSrc, setImgSrc] = useState(article.urlToImage || "public/placeholder-news.png");
 
-const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800";
+  const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800";
   const formattedDate = new Intl.DateTimeFormat("tr-TR", {
     day: "numeric",
     month: "long",
@@ -26,14 +26,14 @@ const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168
     <div className="group flex flex-col bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-all duration-300">
       {/* Görsel Alanı */}
       <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-      <Image
-        src={imgSrc}
-        alt={article.title}
-        fill
-        className="object-cover group-hover:scale-105 transition-transform duration-500"
-        onError={() => setImgSrc(fallbackImage)} // Hata aldığında yedek görsele geç
-        unoptimized // NewsAPI gibi çok farklı kaynaklardan gelen resimlerde 403'ü azaltabilir
-      />
+        <Image
+          src={imgSrc}
+          alt={article.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          onError={() => setImgSrc(fallbackImage)} // Hata aldığında yedek görsele geç
+          unoptimized // NewsAPI gibi çok farklı kaynaklardan gelen resimlerde 403'ü azaltabilir
+        />
       </div>
 
       {/* İçerik Alanı */}
@@ -45,7 +45,7 @@ const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168
           <span>{formattedDate}</span>
         </div>
 
-        <Link href={article.url} target="_blank" className="block mt-1">
+        <Link href={`/news/${encodeURIComponent(article.title)}`}  className="block mt-1">
           <h3 className="text-xl font-bold leading-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
             {article.title}
           </h3>
@@ -57,12 +57,11 @@ const fallbackImage = "https://images.unsplash.com/photo-1504711434969-e33886168
 
         {/* Buton - Flex-grow ile hep en altta kalmasını sağlıyoruz */}
         <div className="mt-auto pt-5">
-          <Link 
-            href={article.url} 
-            target="_blank"
+          <Link
+            href={`/news/${encodeURIComponent(article.title)}`}
             className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400"
           >
-            Haberi Oku <span className="ml-1">→</span>
+            Haberi İncele <span className="ml-1">→</span>
           </Link>
         </div>
       </div>
