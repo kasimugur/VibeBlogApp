@@ -38,7 +38,7 @@ VibeBlog is a modern **Next.js** application designed to keep up with the curren
 ![Demo GIF](./public/vibeblogapp.mp4)
 
 ---
-[Live Link](https://vibeblog-app-link.vercel.app/) 
+[Live Link](https://vibe-blog-app.vercel.app/) 
 
 ### Application Screenshots
 
